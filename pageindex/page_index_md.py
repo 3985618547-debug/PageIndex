@@ -300,13 +300,15 @@ async def md_to_tree(md_path, if_thinning=False, min_token_threshold=None, if_ad
 if __name__ == "__main__":
     import os
     import json
+    from dotenv import load_dotenv
+    load_dotenv()
     
     # MD_NAME = 'Detect-Order-Construct'
     MD_NAME = 'cognitive-load'
     MD_PATH = os.path.join(os.path.dirname(__file__), '..', 'tests/markdowns/', f'{MD_NAME}.md')
 
 
-    MODEL="gpt-4.1"
+    MODEL = os.getenv('OPENAI_MODEL', 'gpt-4.1')
     IF_THINNING=False
     THINNING_THRESHOLD=5000
     SUMMARY_TOKEN_THRESHOLD=200
