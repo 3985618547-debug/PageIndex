@@ -338,4 +338,4 @@ if __name__ == "__main__":
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(tree_structure, f, indent=2, ensure_ascii=False)
     
-    print(f"\nTree structure saved to: {output_path}")
+    print(f"\nTree structure saved to: {output_path}") 
