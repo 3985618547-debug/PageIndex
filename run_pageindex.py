@@ -3,6 +3,8 @@ import os
 import json
 from pageindex import *
 from pageindex.page_index_md import md_to_tree
+from dotenv import load_dotenv
+load_dotenv()
 
 if __name__ == "__main__":
     # Set up argument parser
@@ -10,7 +12,7 @@ if __name__ == "__main__":
     parser.add_argument('--pdf_path', type=str, help='Path to the PDF file')
     parser.add_argument('--md_path', type=str, help='Path to the Markdown file')
 
-    parser.add_argument('--model', type=str, default='gpt-4o-2024-11-20', help='Model to use')
+    parser.add_argument('--model', type=str, default=os.getenv('OPENAI_MODEL', 'gpt-4o-2024-11-20'), help='Model to use')
 
     parser.add_argument('--toc-check-pages', type=int, default=20, 
                       help='Number of pages to check for table of contents (PDF only)')
